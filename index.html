@@ -1,0 +1,103 @@
+<html>
+ <head>
+  <title>Quiz Program</title>
+   <script>
+   var questionCount = 0;
+   var score = 0;
+   var ans1 = "";
+   var ans2 = "";
+   var ans3 = "";
+   var ans4 = "";
+   var ans5 = "";
+   var table = "";
+   function quiz() {
+     if (questionCount == 0) {
+       ans1 = document.getElementById("answer").value;
+       if (ans1 == "F-22 Raptor") {
+         score = score + 1;
+         questionCount = questionCount + 1;
+       } else {
+         questionCount = questionCount + 1;
+       }
+       document.getElementById("question").innerHTML = "<img src = 'F-35.jpg' width = '600px' height = '400px'>";
+     }
+    else if (questionCount == 1) {
+       ans2 = document.getElementById("answer").value;
+       if (ans2 == "F-35 Lightning II") {
+         score = score + 1;
+         questionCount = questionCount + 1;
+       } else {
+         questionCount = questionCount + 1;
+       }
+       document.getElementById("question").innerHTML = "<img src = 'Su-57.jpg' width = '600px' height = '400px'>";
+     }
+     else if (questionCount == 2) {
+       ans3 = document.getElementById("answer").value;
+       if (ans3 == "Sukhoi Su-57") {
+         score = score + 1;
+         questionCount = questionCount + 1;
+       } else {
+         questionCount = questionCount + 1;
+       }
+
+       document.getElementById("question").innerHTML = "<img src = 'J-20.jpg' width = '600px' height = '400px'>";
+     }
+    else if (questionCount == 3) {
+       ans4 = document.getElementById("answer").value;
+       if (ans4 == "Chengdu J-20") {
+         score = score + 1;
+         questionCount = questionCount + 1;
+       } else {
+         questionCount = questionCount + 1;
+       }
+
+       document.getElementById("question").innerHTML = "<img src = 'YF-23.jpg' width = '600px' height = '400px'>";
+     }
+    else if (questionCount == 4) {
+       ans5 = document.getElementById("answer").value;
+       if (ans5 == "Northrop Grumman YF-23") {
+         score = score + 1;
+         end();
+       } else {
+         end();
+       }
+     }
+
+     function end() {
+       //hide stuff
+       document.getElementById("question").innerHTML = score + "/5";
+       questionCount = questionCount + 1;
+       table = table + "F-22 Raptor --- " + ans1 + "<br>" + "F-35 Lightning II --- " + ans2 + "<br>" + "Sukhoi Su-57 --- " + ans3 + "<br>" + "Chengdu J-20 --- " + ans4 + "<br>" + "Northrop Grumman YF-23 --- " + ans5;
+       document.getElementById("question").innerHTML = table;
+     }
+}
+     function reset() {
+score = 0;
+questionCount = 0;
+document.getElementById("question").innerHTML = "<img src = 'F-22.jpg'  width = '600px' height = '400px'>"
+     }
+
+   </script>
+  <style>
+body {
+  background-color: cyan;
+}
+span {
+  font-size: 30px;
+  font-family: comic;
+}
+h2:hover{
+  background-image: url("Doom.gif");
+}
+  </style>
+</head>
+ <body>
+  <h2>Guess It!</h2>
+   <span id = "question"><img src = "F-22.jpg"  width = '600px' height = '400px'></span>
+   <br>
+   <br>
+   <input type = "text" id = "answer">
+   <input type = "button" id = "submit" value = "Submit Answer" onclick = "quiz()">
+  <input type = "button" id = "reset" value = "reset" onclick = "reset()">
+ </body>
+</html>
